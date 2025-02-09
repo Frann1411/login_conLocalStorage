@@ -1,0 +1,237 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: rgba(255, 255, 255, 0.95);
+    --text-color: #2c3e50;
+    --background-base: #1a1a2e;
+    --box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --transition-speed: 0.3s;
+    --card-border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Tema oscuro */
+[data-theme="dark"] {
+    --primary-color: #6c5ce7;
+    --secondary-color: rgba(30, 32, 44, 0.95);
+    --text-color: #ecf0f1;
+    --background-base: #0a0a15;
+    --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    --card-border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background-base);
+    color: var(--text-color);
+    transition: background var(--transition-speed);
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Canvas para las partículas */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.form-box {
+    background: var(--secondary-color);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed);
+    backdrop-filter: blur(16px);
+    border: var(--card-border);
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+    }
+    100% {
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+}
+
+/* Animación para los formularios */
+.form-box form {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para los inputs */
+.form-floating {
+    margin-bottom: 1.5rem;
+}
+
+.form-floating input {
+    border: 2px solid rgba(74, 144, 226, 0.1);
+    transition: all var(--transition-speed);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 1rem 0.75rem;
+}
+
+.form-floating input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+    background-color: white;
+}
+
+.form-floating label {
+    padding: 1rem 0.75rem;
+}
+
+/* Botones */
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    transition: all var(--transition-speed);
+    border-radius: 12px;
+    padding: 0.8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn-primary:hover:before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+/* Switch para tema oscuro/claro */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+}
+
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.slider {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider:before {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Toast personalizado */
+.toast {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: var(--card-border);
+}
+
+.toast-header {
+    background: var(--primary-color);
+    color: white;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Estilos para los enlaces */
+.btn-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    font-size: 0.9rem;
+}
+
+.btn-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Título del formulario */
+.form-box h2 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+}
+
+.form-box h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Iconos dentro de los botones */
+.btn i {
+    transition: transform var(--transition-speed);
+}
+
+.btn:hover i {
+    transform: translateX(3px);
+}
