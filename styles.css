@@ -2,39 +2,9 @@
     --primary-color: #4a90e2;
     --secondary-color: rgba(255, 255, 255, 0.95);
     --text-color: #2c3e50;
-    --background-base: #1a1a2e;
     --box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
     --transition-speed: 0.3s;
     --card-border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-/* Tema oscuro */
-[data-theme="dark"] {
-    --primary-color: #6c5ce7;
-    --secondary-color: rgba(30, 32, 44, 0.95);
-    --text-color: #ecf0f1;
-    --background-base: #0a0a15;
-    --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-    --card-border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-body {
-    min-height: 100vh;
-    background: var(--background-base);
-    color: var(--text-color);
-    transition: background var(--transition-speed);
-    position: relative;
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Canvas para las partículas */
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
 }
 
 .container {
@@ -152,31 +122,6 @@ body {
     box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
 }
 
-/* Switch para tema oscuro/claro */
-.theme-switch-wrapper {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-}
-
-.theme-switch {
-    display: inline-block;
-    position: relative;
-    width: 60px;
-    height: 34px;
-}
-
-.slider {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.slider:before {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 /* Toast personalizado */
 .toast {
     background: var(--secondary-color);
@@ -188,7 +133,7 @@ body {
 
 .toast-header {
     background: var(--primary-color);
-    color: white;
+    color: rgb(241, 94, 68);
     border-radius: 12px 12px 0 0;
 }
 
